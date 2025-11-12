@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Mart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+    <!-- bootstrap scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <!-- Site Header -->
+    <header class="site-header">
+
+        <a href="food-mart.html" class="logo-container">
+            <img src="../images/logo.png" alt="Food Smart Logo" class="logo-img">
+        </a>
+
+        <form class="search-container" action=" " method="post">
+            <select name="category1">
+                <option value="all-categories">All Categories</option>
+                <option value="groceries">Groceries</option>
+                <option value="drinks">Drinks</option>
+                <option value="chocolates">Chocolate</option>
+            </select>
+
+            <input type="text" name="search_query" placeholder="Search for more than 20,000 products">
+
+            <button type="submit" class="search-btn" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+            </button>
+        </form>
+
+        <div class="support-info">
+            <span class="support-label">For Support?</span>
+            <span class="support-phone">+980-349984089</span>
+        </div>
+
+        <div class="user-actions">
+            <button class="icon-btn" aria-label="Account">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </button>
+            <button class="icon-btn" aria-label="Wishlist">
+                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                    </path>
+                </svg>
+            </button>
+
+            <div class="cart-info">
+                <span class="cart-label">Your Cart</span>
+                <span class="cart-price">$1290.00</span>
+            </div>
+        </div>
+    </header>
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li>
+                <form class="search-container" action=" " method="post">
+                    <select name="category2">
+                        <option value="Shop-by-Departments">Shop by Departments</option>
+                        <option value="groceries">Groceries</option>
+                        <option value="drinks">Drinks</option>
+                        <option value="chocolates">Chocolate</option>
+                    </select>
+            </li>
+            <li><a href="#">Woman</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Kids</a></li>
+            <li><a href="#">Accessories</a></li>
+            <li>
+                <select name="category3">
+                    <option value="pages">Pages</option>
+                    <option value="about-us">About Us</option>
+                    <option value="shop">Shop</option>
+                    <option value="single-product">Single Product</option>
+                    <option value="cart">Cart</option>
+                    <option value="checkout">Checkout</option>
+                    <option value="blog">Blog</option>
+                    <option value="single-post">Contact</option>
+                    <option value="styles">Styles</option>
+                    <option value="contact">Contact</option>
+                    <option value="thank-you">Thank you</option>
+                    <option value="my-account">My Account</option>
+                    <option value="404-error">404 Error</option>
+                </select>
+            </li>
+            <li><a href="#">Brand</a></li>
+            <li><a href="#">Sale</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+    </nav>
+    <!--Page content -->
+    <div class="content-container">
+        <!-- Page content-1 goes here -->
+        <div class="content-item content-main">
+            <img src="../images/slide-1.jpg" alt="No images found">
+            <div class="banner-content">
+                <span class="banner-tag">100% Natural</span>
+                <h2 class="banner-title">Fresh Smoothie <br>& Summer Juice</h2>
+                <p class="banner-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa
+                    diam elementum.</p>
+                <a href="#" class="shop-now-btn">SHOP NOW</a>
+            </div>
+            <!-- Banner dots -->
+            <div class="banner-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+        <!-- Page content-2 goes here -->
+        <div class="content-item">
+            <img src="../images/slide-3.jpg" alt="No images found">
+            <div class="promo-text">
+                <span class="promo-discount">20% Off</span>
+                <span class="promo-sale">SALE</span>
+                <h3 class="promo-title">Fruits & <br>Vegetables</h3>
+                <a href="#" class="shop-collection-link">Shop Collection →</a>
+            </div>
+        </div>
+        <!-- Page content-3 goes here -->
+        <div class="content-item">
+            <img src="../images/slide-4.jpg" alt="No images found">
+            <div class="promo-text">
+                <span class="promo-discount">15% Off</span>
+                <span class="promo-sale">SALE</span>
+                <h3 class="promo-title">Baked Products</h3>
+                <a href="#" class="shop-collection-link">Shop Collection →</a>
+            </div>
+        </div>
+    </div>
+    <!-- Categories Section1 -->
+    <div class="categories-section">
+        <div class="section-header">
+            <h2 class="section-title">Category</h2>
+            <div class="section-nav">
+                <a href="#" class="view-all">View All Categories &rarr;</a>
+                <div class="swiper-nav-btns">
+                    <button class="swiper-btn prev-btn" aria-label="Previous Category">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="swiper-btn next-btn" aria-label="Next Category">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="category-grid">
+            <div class="category-item">
+                <div class="category-icon">
+                    <img src="../images/icon-vegetables-broccoli.png" alt="Fruits & Veges icon">
+                </div>
+                <span class="category-name">Fruits & Veges</span>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">
+                    <img src="../images/icon-bread-baguette.png" alt="Breads & Sweets icon">
+                </div>
+                <span class="category-name">Breads & Sweets</span>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">
+                    <img src="../images/icon-soft-drinks-bottle.png" alt="Drinks icon">
+                </div>
+                <span class="category-name">Drinks</span>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">
+                    <img src="../images/icon-wine-glass-bottle.png" alt="Soft Drinks icon">
+                </div>
+                <span class="category-name">Soft Drinks</span>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">
+                    <img src="../images/icon-animal-products-drumsticks.png" alt="Fresh Meat icon">
+                </div>
+                <span class="category-name">Fresh Meat</span>
+            </div>
+            <div class="category-item">
+                <div class="category-icon">
+                    <img src="../images/icon-bread-herb-flour.png" alt="Dairy & Eggs icon">
+                </div>
+                <span class="category-name">Dairy & Eggs</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Product section -->
+    <section class="brands-section">
+        <!-- Section Header -->
+        <div class="section-header">
+            <!-- Title -->
+            <h2 class="section-title">Newly Arrived Brands</h2>
+            <!-- Navigation -->
+            <div class="section-nav">
+                <a href="#" class="view-all">View All Categories &rarr;</a>
+                <div class="swiper-nav-btns">
+                    <button class="swiper-btn prev-btn" aria-label="Previous">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    <button class="swiper-btn next-btn" aria-label="Next">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="product-container-1">
+            <!-- Card 1 -->
+            <div class="item-product">
+                <div class="item-product-inner">
+                    <!-- Image -->
+                    <div class="product-image-wrapper">
+                        <!-- Replaced broken image path with placeholder -->
+                        <img class="product-image" src="../images/thumb-honey.jpg" alt="Amber Jar">
+                    </div>
+                    <!-- Text Content -->
+                    <!-- Removed redundant 'flex-1' class -->
+                    <div class="product-text">
+                        <p class="product-category">Amber Jar</p>
+                        <h3 class="product-name">Honey best nectar</h3>
+                        <p class="product-description">you wish to get</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="item-product">
+                <div class="item-product-inner">
+                    <!-- Image -->
+                    <div class="product-image-wrapper">
+                        <!-- Replaced broken image path with placeholder -->
+                        <img class="product-image" src="../images/thumb-herb.jpg" alt="Product Label">
+                    </div>
+                    <!-- Text Content -->
+                    <div class="product-text">
+                        <p class="product-category">Amber Jar</p>
+                        <h3 class="product-name">Honey best nectar</h3>
+                        <p class="product-description">you wish to get</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="item-product">
+                <div class="item-product-inner">
+                    <!-- Image -->
+                    <div class="product-image-wrapper">
+                        <!-- Replaced broken image path with placeholder -->
+                        <img class="product-image" src="../images/thumb-tuna.jpg" alt="Green Box">
+                    </div>
+                    <!-- Text Content -->
+                    <div class="product-text">
+                        <p class="product-category">Amber Jar</p>
+                        <h3 class="product-name">Honey best nectar</h3>
+                        <p class="product-description">you wish to get</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="item-product">
+                <div class="item-product-inner">
+                    <!-- Image -->
+                    <div class="product-image-wrapper">
+                        <!-- Replaced broken image path with placeholder & fixed typo 'classs' -->
+                        <img class="product-image" src="../images/thumb-junk.jpg" alt="Food Jar">
+                    </div>
+                    <!-- Text Content -->
+                    <div class="product-text">
+                        <p class="product-category">Amber Jar</p>
+                        <h3 class="product-name">Honey best nectar</h3>
+                        <p class="product-description">you wish to get</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trending Products Section -->
+        <section class="trending-products-section">
+            <div class="section-header">
+                <h2 class="section-title">Trending Products</h2>
+                <nav class="product-tabs">
+                    <!-- Active tab will be highlighted -->
+                    <a href="#" class="tab-link active">ALL</a>
+                    <a href="#" class="tab-link">FRUITS & VEGES</a>
+                    <a href="#" class="tab-link">JUICES</a>
+                </nav>
+            </div>
+            <!-- Product Cards flex-box-->
+            <div class="product-cards">
+                <!-- Card 1 -->
+                <div class="card1">
+                    <img src="../images/thumb-bananas.png" class="card-img-top" alt="...">
+                    <div class="card-header">
+                        <span class="discount1">-30%</span>
+                        <a href="#" class="icon1 icon1-active">
+                            <i class="fa fa-heart heart-icon"></i>
+                        </a>
+                    </div>
+
+                    <div class="card-body">
+                        <h5 class="card-title">Sunstar Fresh Melon Juice</h5>
+                        <p class="card-text1">1 Unit <br> <span class="card-text2">$18.00</span></p>
+
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="card1">
+                    <img src="../images/thumb-biscuits.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Sunstar Fresh Melon Juice</h5>
+                        <p class="card-text">1 Unit</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="card1">
+                    <img src="../images/thumb-cucumber.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Sunstar Fresh Melon Juice</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card’s content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="card1">
+                    <img src="../images/thumb-raspberries.png" class="card-img-top" alt="...">
+                    <span class="discount1">-30%</span>
+                    <div class="card-body">
+                        <h5 class="card-title">Sunstar Fresh Melon Juice</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card’s content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="card1">
+                    <img src="../images/thumb-bananas.png" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Sunstar Fresh Melon Juice</h5>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                            the card’s content.</p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+</body>
+
+</html>

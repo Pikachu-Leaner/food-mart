@@ -1,0 +1,672 @@
+/* --- Global & Variables --- */
+:root {
+    --primary-orange: #f5a623;
+    --text-dark: #222;
+    --text-light: #777;
+    --border-color: #eee;
+    --search-bg: #f7f7f7;
+    /* --- FIXED: Added missing variables --- */
+    --natural-tag-bg: #fffadd; /* Guessed a value, e.g., light yellow */
+    --white: #ffffff;
+}
+
+/* --- Basic Reset --- */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #fcfcfc;
+    color: var(--text-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+/* --- Main Header Layout --- */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px; 
+    padding: 20px 40px; 
+    background-color: #fff;
+    border-bottom: 1px solid white;
+    width: 100%;
+}
+
+/* --- 1. Logo (Simplified) --- */
+.logo-container {
+    display: block;
+    flex-shrink: 0; 
+}
+
+.logo-img {
+    height: 50px; 
+    width: auto;
+    object-fit: contain;
+}
+
+/* --- 2. Search Container --- */
+.search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden; 
+    flex-grow: 1; 
+    max-width: 800px;
+}
+
+.search-container select,
+.search-container input[type="text"],
+.search-container button 
+{
+    border: none;
+    background-color: transparent;
+    padding: 15px 20px; 
+    font-size: 25px;
+}
+
+.search-container select {
+    color: gray;
+    border-right: 1px solid white;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 35px; 
+    /* Arrow icon ( get this from f12 in browser ) */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+    background-repeat: no-repeat;
+    background-position: right 15px center; 
+}
+
+.search-container input[type="text"] {
+    outline: none;
+    width: 100%; 
+}
+
+.search-btn 
+{
+    padding: 15px 20px; 
+}
+
+.search-btn svg {
+    stroke: gray;
+    display: block; 
+}
+
+/* --- 3. Support Info --- */
+.support-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    white-space: nowrap; 
+}
+
+.support-label {
+    font-size: 25px; 
+    color: gray;
+}
+
+.support-phone {
+    font-size: 25px; 
+    font-weight: 700;
+}
+
+/* --- 4. User Actions --- */
+.user-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text-dark);
+}
+
+.icon-btn svg {
+    stroke: var(--text-dark);
+    transition: stroke 0.2s ease-in-out;
+}
+
+.icon-btn:hover svg {
+    stroke: orange; 
+}
+
+.cart-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.cart-label {
+    font-size: 25px; 
+    color: gray;
+    cursor: pointer;
+}
+
+.cart-label::after {
+    content: ' ▾';
+    font-size: 25px; 
+}
+
+.cart-price {
+    font-size: 25px; 
+    font-weight: 700;
+}
+
+/* --- 5. Main Navigation --- */
+.main-nav {
+    width: 100%;
+    background-color: #fff;
+    border-top: 1px solid white;
+    padding: 0 40px; /* Align with header-top padding */
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping */
+    gap: 30px; /* Spacing between nav items */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-height: 50px; /* Give it a defined min-height */
+}
+
+.nav-list li {
+    display: flex;
+    align-items: center;
+    /* Ensure list items are vertically centered if nav wraps */
+    padding: 10px 0; 
+}
+
+.nav-list a,
+.nav-list select {
+    font-size: 30px; /* Clean nav font size */
+    color: var(--text-dark);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-list a:hover {
+    color: orange;
+}
+
+.nav-list select {
+    border: none;
+    background-color: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0;
+    padding-right: 18px; /* Space for arrow */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>'); /* Darker arrow */
+    background-repeat: no-repeat;
+    background-position: right 0px center;
+}
+
+/* --- 6. Main Content Area  --- */
+.content-container {
+    display: grid;
+    /* Create a 3-column grid */
+    grid-template-columns: repeat(3, 1fr); 
+    /* Create a 2-row grid */
+    grid-template-rows: repeat(2, 1fr);
+    gap: 20px;
+    /* --- FIXED: Invalid 'px' unit --- */
+    padding: 20px 40px; /* Match header horizontal padding */
+}
+
+.content-item {
+    position: relative; /* For positioning text */
+    border-radius: 8px;
+    overflow: hidden;
+    height: 100%;
+    min-height: 250px; /* Minimum height for items */
+}
+
+.content-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area */
+    display: block;
+}
+
+/* Make the main banner span 2 columns and 2 rows */
+.content-main {
+    grid-column: 1 / 3; /* Span from column line 1 to 3 */
+    grid-row: 1 / 3; /* Span from row line 1 to 3 */
+}
+
+/* --- Banner Content Styles --- */
+.banner-content {
+    position: absolute;
+    top: 50%;
+    left: 8%; /* Position from left */
+    transform: translateY(-50%);
+    z-index: 2;
+    color: var(--text-dark);
+}
+
+.banner-tag {
+    background-color: var(--natural-tag-bg);
+    color: rgb(194, 194, 32);
+    border-radius: 5px;
+    font-size: 50px;
+    font-weight: 600;
+}
+
+.banner-title {
+    font-size: 80px;
+    font-weight: 700;
+    margin: 20px 0;
+    line-height: 1.2;
+    margin-top: 50px;
+}
+
+.banner-description {
+    font-size: 30px;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    max-width: 700px; /* Constrain width */
+}
+
+.shop-now-btn {
+    background-color: rgb(238, 226, 226);
+    color: var(--white);
+    padding: 14px 28px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: background-color 0.2s ease;
+}
+
+.shop-now-btn:hover {
+    background-color: #22201e;
+    color: white;
+}
+
+.banner-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: orange;
+}
+
+/* --- Promo Content Styles --- */
+.promo-text {
+    position: absolute;
+    top: 50%;
+    left: 10%;
+    transform: translateY(-50%);
+    padding: 20px;
+    z-index: 2;
+}
+
+.promo-discount {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.promo-sale {
+    font-size: 14px;
+    font-weight: 700;
+    color: #f00; /* Red for sale */
+    margin-left: 8px;
+}
+
+.promo-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 10px 0 15px 0;
+    line-height: 1.3;
+}
+
+.shop-collection-link {
+    font-size: 15px;
+    font-weight: 600;
+    color: black;
+    /* Transition for color change */
+    transition: color 0.2s ease;
+}
+
+.shop-collection-link:hover {
+    color: orange;
+}
+
+/* --- 7. Categories Section --- */
+.categories-section {
+    padding: 50px 40px; /* Top/bottom padding and match horizontal */
+    margin-bottom: 160px;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px; /* Space below header */
+}
+
+.section-title 
+{
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0;
+    color: black;
+}
+
+.section-nav 
+{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.view-all 
+{
+    font-size: 25px;
+    font-weight: 600;
+    color: black;
+    transition: color 0.2s ease;
+}
+
+.view-all:hover 
+{
+    color: orange;
+}
+
+.swiper-nav-btns {
+    display: flex;
+    gap: 10px;
+}
+
+.swiper-btn {
+    background-color: lightgrey; 
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+    width: 80px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.swiper-btn svg {
+    stroke: var(--text-light); /* Light grey arrows */
+    transition: stroke 0.2s ease;
+}
+
+.swiper-btn:hover {
+    background-color: orange;
+    border-color: orange;
+}
+
+.swiper-btn:hover svg {
+    stroke: white; 
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+    gap: 25px;
+}
+
+.category-item {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 20px; /* Adjusted padding */
+    text-align: center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.category-item:hover {
+    border-color: orange;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow on hover */
+}
+
+.category-icon {
+    width: 120px; /* Icon container size */
+    height: 120px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.category-name {
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+/* --- 8. Products Section --- */
+/* Product Cards Grid */
+.product-container-1 {
+    display: flex;
+    overflow-x: auto;
+    justify-content: center;
+    gap: 30px; 
+    padding-bottom: 20px; 
+    margin-bottom: 160px;
+}
+
+.item-product {
+    flex-shrink: 0;
+    width: 480px;
+    background-color: #ffffff;
+    border-radius: 15px; 
+    padding: 10px;
+}
+
+.item-product-inner {
+    display: flex;
+    align-items: center;
+    gap: 20px; 
+}
+
+.product-image-wrapper {
+    flex-shrink: 0;
+}
+
+.product-image {
+    height: 200px; 
+    width: 250px; 
+    border-radius: 20px; 
+    object-fit: cover;
+}
+
+.product-text {
+    flex: 1 1 0%;
+}
+
+.product-category {
+    font-size: 20px; 
+    line-height: 20px;
+    font-weight: 500; /* font-medium */
+    color: #6b7280; /* text-gray-500 */
+}
+
+.product-name {
+    font-size: 25px; /* text-base */
+    line-height: 25px;
+    font-weight: 600; 
+    color: #6b7280; 
+    line-height: 1.4; /* leading-snug */
+}
+
+.product-description {
+    font-size: 25px; /* text-sm */
+    line-height: 20px;
+    color: #6b7280; 
+    font-weight: 600;
+}
+
+.brands-section {
+    padding: 50px 40px;
+}
+
+/* --- 8. Trending Products Section --- */
+.trending-products-section {
+    padding: 50px 40px; /* Match horizontal and vertical padding */
+}
+
+.product-tabs {
+    display: flex;
+    gap: 30px;
+}
+
+.tab-link {
+    font-size: 25px;
+    font-weight: 600;
+    color: white;
+    padding-bottom: 8px;
+    border-bottom: 3px solid transparent;
+    /* transition: color 0.2s ease, border-color 0.2s ease; */
+}
+
+/* Hover mouse to to object to see colour change */
+.tab-link:hover {
+    color: orange;
+}
+
+/* Active tab when being choosed ( currently auto force the first 1 and can't be change since no clue animation ) */
+.tab-link.active {
+    color: orange;
+    border-bottom-color: orange;
+}
+
+.product-cards
+{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card1
+{
+    width: 350px;
+    border: 1px solid white;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    position: relative;
+    object-fit: cover;
+}
+
+.card-header
+{
+    display: flex;
+}
+
+.card-header .discount1
+{
+    display: block;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: rgb(91, 182, 91);
+    color: white;
+    border-radius: 10px;
+    width: 50px;
+    text-align: center;
+}
+
+.card-header .icon1 .heart-icon
+{
+    position: absolute;
+    background-color: rgb(247, 241, 241);
+    right: 19px;
+    bottom: 20px;
+}
+
+.card-header .icon1
+{
+    position: absolute;
+    background-color: rgb(247, 241, 241);
+    border: 1px solid white;
+    right: 20px;
+    top: 5px;
+    border-radius: 40px;
+    width: 60px;
+    height: 60px;
+}
+
+.icon1-active:hover
+{
+    background-color: black;
+
+}
+
+.card-text1
+{
+    font-size: 15px;
+    font-weight: 600;
+    color: gray;
+}
+
+.card-text2
+{
+    font-size: 30px;
+    font-weight: 700;
+    color: black;
+}
+
+/* Responsive styles */
+@media (min-width: 640px) { /* sm: */
+    body {
+        padding-left: 25px; /* sm:px-6 */
+        padding-right: 25px;
+    }
+    .view-all-link {
+        display: block; /* sm:block */
+    }
+}
+
+@media (min-width: 1100px) { /* lg: */
+     body {
+        padding-left: 35px; /* lg:px-8 */
+        padding-right: 35px;
+    }
+}
