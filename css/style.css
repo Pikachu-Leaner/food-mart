@@ -1224,7 +1224,7 @@ footer.footer {
     margin-top: 30px; /* Adds space between stacked columns */
   }
 }
-
+/* reposives */
 /* Large Screens (Above 1400px) */
 @media (min-width: 1400px) {
   /* Increase max-width if you want it wider on huge screens */
