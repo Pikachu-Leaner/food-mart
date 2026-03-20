@@ -7,9 +7,20 @@
   --search-bg: #f7f7f7;
   --natural-tag-bg: #fffadd; /* Guessed a value, e.g., light yellow */
   --white: #ffffff;
+  --primary-orange: #f5a623;
+  --text-dark: #222;
+  --text-light: #777;
+  --border-color: #eee;
+  --search-bg: #f7f7f7;
+  --natural-tag-bg: #fffadd; /* Guessed a value, e.g., light yellow */
+  --white: #ffffff;
 }
 
 body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  background-color: #fcfcfc;
+  color: var(--text-dark);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
     Arial, sans-serif;
   background-color: #fcfcfc;
@@ -19,9 +30,13 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 button {
+  font-family: inherit;
+  cursor: pointer;
   font-family: inherit;
   cursor: pointer;
 }
@@ -36,15 +51,29 @@ button {
   background-color: #fff;
   border-bottom: 1px solid white;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 20px 40px;
+  background-color: #fff;
+  border-bottom: 1px solid white;
+  width: 100%;
 }
 
 /* --- 1. Logo  --- */
+/* --- 1. Logo  --- */
 .logo-container {
+  display: block;
+  flex-shrink: 0;
   display: block;
   flex-shrink: 0;
 }
 
 .logo-img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
   height: 70px;
   width: auto;
   object-fit: contain;
@@ -60,10 +89,23 @@ button {
   overflow: hidden;
   flex-grow: 1;
   max-width: 800px;
+  display: flex;
+  align-items: center;
+  border: 1px solid white;
+  background-color: rgba(235, 231, 231, 0.925);
+  border-radius: 15px;
+  overflow: hidden;
+  flex-grow: 1;
+  max-width: 800px;
 }
 
 .search-container select,
 .search-container input[type="text"],
+.search-container button {
+  border: none;
+  background-color: transparent;
+  padding: 15px 20px;
+  font-size: 20px;
 .search-container button {
   border: none;
   background-color: transparent;
@@ -82,13 +124,27 @@ button {
   background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
   background-repeat: no-repeat;
   background-position: right 15px center;
+  color: #747474;
+  border-right: 1px solid white;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 35px;
+  /* Arrow icon ( get this from f12 in browser ) */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23777" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-repeat: no-repeat;
+  background-position: right 15px center;
 }
 
 .search-container input[type="text"] {
   outline: none;
   width: 100%;
+  outline: none;
+  width: 100%;
 }
 
+.search-btn {
+  padding: 15px 20px;
 .search-btn {
   padding: 15px 20px;
 }
@@ -96,10 +152,16 @@ button {
 .search-btn svg {
   stroke: gray;
   display: block;
+  stroke: gray;
+  display: block;
 }
 
 /* --- 3. Support Info --- */
 .support-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  white-space: nowrap;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -112,15 +174,25 @@ button {
   margin-bottom: 10px;
   margin-top: 20px;
   color: gray;
+  font-size: 20px;
+  padding-left: 60px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: gray;
 }
 
 .support-phone {
+  font-size: 20px;
+  font-weight: 700;
   font-size: 20px;
   font-weight: 700;
 }
 
 /* --- 4. User Actions --- */
 .user-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -131,18 +203,28 @@ button {
   border: none;
   padding: 0;
   color: var(--text-dark);
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--text-dark);
 }
 
 .icon-btn svg {
+  stroke: var(--text-dark);
+  transition: stroke 0.2s ease-in-out;
   stroke: var(--text-dark);
   transition: stroke 0.2s ease-in-out;
 }
 
 .icon-btn:hover svg {
   stroke: orange;
+  stroke: orange;
 }
 
 .cart-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -152,9 +234,14 @@ button {
   font-size: 25px;
   color: gray;
   cursor: pointer;
+  font-size: 25px;
+  color: gray;
+  cursor: pointer;
 }
 
 .cart-label::after {
+  content: " ▾";
+  font-size: 25px;
   content: " ▾";
   font-size: 25px;
 }
@@ -162,10 +249,17 @@ button {
 .cart-price {
   font-size: 25px;
   font-weight: 700;
+  font-size: 25px;
+  font-weight: 700;
 }
 
 /* --- 5. Main Navigation  --- */
+/* --- 5. Main Navigation  --- */
 .main-nav {
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid white;
+  padding: 0 40px; 
   width: 100%;
   background-color: #fff;
   border-top: 1px solid white;
@@ -181,9 +275,19 @@ button {
   margin: 0;
   padding: 15px 0;
   height: auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; 
+  gap: 30px; 
+  list-style: none;
+  margin: 0;
+  padding: 15px 0;
+  height: auto;
 }
 
 .nav-list li {
+  display: flex;
+  align-items: center;
   display: flex;
   align-items: center;
 }
@@ -195,9 +299,36 @@ button {
   color: #7a7a7a; 
   text-decoration: none;
   font-weight: 500;
+  font-size: 20px; 
+  font-family: inherit;
+  color: #7a7a7a; 
+  text-decoration: none;
+  font-weight: 500;
 }
 
 .nav-list select {
+  border: none;
+  background-color: transparent;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding: 0;
+  padding-right: 18px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%237a7a7a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  background-repeat: no-repeat;
+  background-position: right 0px center;
+  cursor: pointer;
+}
+
+.nav-list select[name="category2"] {
+  color: #222; 
+  font-weight: 600; 
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23222" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+}
+
+/* Ensure the options inside the dropdown are also dark */
+.nav-list select[name="category2"] option {
+  color: #222;
   border: none;
   background-color: transparent;
   appearance: none;
@@ -229,9 +360,19 @@ button {
   grid-template-rows: repeat(2, 1fr);
   gap: 20px;
   padding: 20px 180px; /* Match header horizontal padding */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px 180px; /* Match header horizontal padding */
 }
 
 .content-item {
+  position: relative; /* For positioning text */
+  border-radius: 8px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 250px; /* Minimum height for items */
   position: relative; /* For positioning text */
   border-radius: 8px;
   overflow: hidden;
@@ -244,16 +385,28 @@ button {
   height: 100%;
   object-fit: cover; /* Cover the area */
   display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover the area */
+  display: block;
 }
 
 /* Make the main banner span 2 columns and 2 rows */
 .content-main {
   grid-column: 1 / 3; /* Span from column line 1 to 3 */
   grid-row: 1 / 3; /* Span from row line 1 to 3 */
+  grid-column: 1 / 3; /* Span from column line 1 to 3 */
+  grid-row: 1 / 3; /* Span from row line 1 to 3 */
 }
 
 /* --- Banner Content Styles --- */
 .banner-content {
+  position: absolute;
+  top: 50%;
+  left: 8%; /* Position from left */
+  transform: translateY(-50%);
+  z-index: 2;
+  color: var(--text-dark);
   position: absolute;
   top: 50%;
   left: 8%; /* Position from left */
@@ -268,9 +421,46 @@ button {
   border-radius: 5px;
   font-size: 45px;
   font-weight: 600;
+  font-family: "Garamond";
+  color: rgb(255, 255, 54);
+  border-radius: 5px;
+  font-size: 45px;
+  font-weight: 600;
 }
 
 .banner-title {
+  font-size: 70px;
+  font-weight: 700;
+  margin: 20px 0;
+  line-height: 1.2;
+  margin-top: 50px;
+  font-family: "Nunito", sans-serif;
+}
+
+.separator1 {
+  width: 110px;
+  height: 1px;
+  background-color: #000000;
+  margin-right: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.separator2 {
+  width: 100px;
+  height: 1px;
+  background-color: #1b1b1b;
+  margin-right: 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.sale-tag {
+  font-size: 15px;
+  margin-top: 30px;
+  letter-spacing: 5px;
+  margin-bottom: 10px;
+  font-family: "Open Sans", sans-serif;
   font-size: 70px;
   font-weight: 700;
   margin: 20px 0;
@@ -313,9 +503,26 @@ button {
   line-height: 2;
   margin-bottom: 50px;
   font-family: "Open Sans", sans-serif;
+  font-size: 20px;
+  color: var(--text-light);
+  margin-bottom: 30px;
+  max-width: 550px;
+  line-height: 2;
+  margin-bottom: 50px;
+  font-family: "Open Sans", sans-serif;
 }
 
 .shop-now-btn {
+  background-color: rgb(245, 169, 54);
+  color: rgb(87, 86, 86);
+  border: rgb(0, 0, 0);
+  padding: 14px 28px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+  font-family: "Nunito", sans-serif;
+  margin-bottom: 30px;
   background-color: rgb(245, 169, 54);
   color: rgb(87, 86, 86);
   border: rgb(0, 0, 0);
@@ -331,9 +538,17 @@ button {
 .shop-now-btn:hover {
   background-color: #22201e;
   color: white;
+  background-color: #22201e;
+  color: white;
 }
 
 .banner-dots {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
   position: absolute;
   bottom: 25px;
   left: 50%;
@@ -348,14 +563,26 @@ button {
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.7);
   cursor: pointer;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
 }
 
 .dot.active {
+  background-color: orange;
   background-color: orange;
 }
 
 /* --- Promo Content Styles --- */
 .promo-text {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  padding: 20px;
+  z-index: 2;
   position: absolute;
   top: 50%;
   left: 10%;
@@ -368,9 +595,15 @@ button {
   font-family: "Garamond";
   font-size: 45px;
   font-weight: 600;
+  font-family: "Garamond";
+  font-size: 45px;
+  font-weight: 600;
 }
 
 .promo-sale {
+  font-size: 15px;
+  color: rgb(0, 0, 0);
+  margin-left: 8px;
   font-size: 15px;
   color: rgb(0, 0, 0);
   margin-left: 8px;
@@ -382,9 +615,17 @@ button {
   margin: 10px 0 15px 0;
   line-height: 1.3;
   font-family: "Nunito", sans-serif;
+  font-size: 40px;
+  font-weight: 600;
+  margin: 10px 0 15px 0;
+  line-height: 1.3;
+  font-family: "Nunito", sans-serif;
 }
 
 .shop-collection-link {
+  font-size: 21px;
+  font-weight: 600;
+  color: rgb(100, 98, 98);
   font-size: 21px;
   font-weight: 600;
   color: rgb(100, 98, 98);
@@ -392,15 +633,22 @@ button {
 
 .shop-collection-link:hover {
   color: orange;
+  color: orange;
 }
 
 /* --- 7. Categories Section --- */
 .categories-section {
   padding: 50px 180px; /* Top/bottom padding and match horizontal */
   margin-bottom: 160px;
+  padding: 50px 180px; /* Top/bottom padding and match horizontal */
+  margin-bottom: 160px;
 }
 
 .section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px; /* Space below header */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -413,8 +661,18 @@ button {
   margin: 0;
   color: black;
   font-family: "Nunito", sans-serif;
+.section-title {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+  color: black;
+  font-family: "Nunito", sans-serif;
 }
 
+.section-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 .section-nav {
   display: flex;
   align-items: center;
@@ -427,13 +685,23 @@ button {
   color: rgb(114, 111, 111);
   transition: color 0.2s ease;
   font-family: "Open Sans", sans-serif;
+.view-all {
+  font-size: 25px;
+  font-weight: 600;
+  color: rgb(114, 111, 111);
+  transition: color 0.2s ease;
+  font-family: "Open Sans", sans-serif;
 }
 
+.view-all:hover {
+  color: rgb(0, 0, 0);
 .view-all:hover {
   color: rgb(0, 0, 0);
 }
 
 .swiper-nav-btns {
+  display: flex;
+  gap: 10px;
   display: flex;
   gap: 10px;
 }
@@ -448,9 +716,20 @@ button {
   justify-content: center;
   align-items: center;
   transition: background-color 0.2s ease, border-color 0.2s ease;
+  background-color: lightgrey;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
+  width: 80px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .swiper-btn svg {
+  stroke: black;
+  transition: stroke 0.2s ease;
   stroke: black;
   transition: stroke 0.2s ease;
 }
@@ -458,13 +737,22 @@ button {
 .swiper-btn:hover {
   background-color: orange;
   border-color: orange;
+  background-color: orange;
+  border-color: orange;
 }
 
 .swiper-btn:hover svg {
   stroke: rgb(88, 88, 88);
+  stroke: rgb(88, 88, 88);
 }
 
 .category-grid {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(150px, 1fr)
+  ); /* Responsive grid */
+  gap: 25px;
   display: grid;
   grid-template-columns: repeat(
     auto-fit,
@@ -484,14 +772,32 @@ button {
   padding: 30px 20px; /* Adjusted padding */
   text-align: center;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  background-color: white;
+  border: 1px solid white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px; /* Adjusted padding */
+  text-align: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .category-item:hover {
   border-color: orange;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow on hover */
+  border-color: orange;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow on hover */
 }
 
 .category-icon {
+  width: 120px; /* Icon container size */
+  height: 120px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 120px; /* Icon container size */
   height: 120px;
   margin-bottom: 15px;
@@ -504,9 +810,16 @@ button {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .category-name {
+  font-size: 30px;
+  font-weight: 600;
+  color: black;
+  font-family: "Nunito", sans-serif;
   font-size: 30px;
   font-weight: 600;
   color: black;
@@ -516,6 +829,12 @@ button {
 /* --- 8. Products Section --- */
 /* Product Cards Grid */
 .product-container-1 {
+  display: flex;            
+  justify-content: space-between; 
+  gap: 20px;                
+  overflow: hidden;         
+  padding: 10px 5px; 
+  margin-bottom: 160px;       
   display: flex;            
   justify-content: space-between; 
   gap: 20px;                
@@ -532,15 +851,26 @@ button {
   padding: 20px;            
   background-color: #fff;
   box-shadow: 0 8px 16px rgba(0,0,0,.15)!important;
+  flex: 1;                  
+  min-width: 0;             
+  border: 1px solid #e6e6e6; 
+  border-radius: 12px;      
+  padding: 20px;            
+  background-color: #fff;
+  box-shadow: 0 8px 16px rgba(0,0,0,.15)!important;
 }
 
 .item-product-inner {
   display: flex;
   align-items: center;
   gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .product-image-wrapper {
+  flex-shrink: 0;
   flex-shrink: 0;
 }
 
@@ -549,13 +879,22 @@ button {
   width: 170px;
   border-radius: 10px;
   object-fit: cover;
+  height: 140px;
+  width: 170px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .product-text {
   flex: 1 1 0%;
+  flex: 1 1 0%;
 }
 
 .product-category {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 500; /* font-medium */
+  color: #6b7280; /* text-gray-500 */
   font-size: 20px;
   line-height: 20px;
   font-weight: 500; /* font-medium */
@@ -569,18 +908,28 @@ button {
   font-weight: 650;
   color: #6b7280;
   line-height: 1.4; /* leading-snug */
+  font-size: 25px; /* text-base */
+  margin-top: 10px;
+  line-height: 25px;
+  font-weight: 650;
+  color: #6b7280;
+  line-height: 1.4; /* leading-snug */
 }
 
 .brands-section {
+  padding: 50px 180px;
   padding: 50px 180px;
 }
 
 /* --- 8. Trending Products Section --- */
 .trending-products-section {
   padding: 50px 40px; /* Match horizontal and vertical padding */
+  padding: 50px 40px; /* Match horizontal and vertical padding */
 }
 
 .product-tabs {
+  display: flex;
+  gap: 30px;
   display: flex;
   gap: 30px;
 }
@@ -592,10 +941,17 @@ button {
   padding-bottom: 8px;
   border-bottom: 3px solid transparent;
   /* transition: color 0.2s ease, border-color 0.2s ease; */
+  font-size: 25px;
+  font-weight: 600;
+  color: rgb(136, 136, 136);
+  padding-bottom: 8px;
+  border-bottom: 3px solid transparent;
+  /* transition: color 0.2s ease, border-color 0.2s ease; */
 }
 
 /* Hover mouse to to object to see colour change */
 .tab-link:hover {
+  color: rgb(0, 0, 0);
   color: rgb(0, 0, 0);
 }
 
@@ -603,8 +959,14 @@ button {
 .tab-link.active {
   color: rgb(0, 0, 0);
   border-bottom-color: orange;
+  color: rgb(0, 0, 0);
+  border-bottom-color: orange;
 }
 
+.product-cards {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
 .product-cards {
   display: flex;
   gap: 20px;
@@ -626,8 +988,29 @@ button {
   height: 300px;
   width: 100%;
   object-fit: contain;
+.card1 {
+  width: 380px;
+  border: none;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: white;
+  position: relative;
+  padding: 20px;
+  font-family: "Open Sans", sans-serif;
 }
 
+.card1 img {
+  height: 300px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.card-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
 .card-info {
   display: flex;
   align-items: center;
@@ -715,8 +1098,92 @@ button {
   line-height: 1.2;
   text-align: center;
   font-weight: bolder;
+.card-item-background {
+  position: relative;
+  background-color: #f8f6f6e7;
+  border-radius: 30px;
+  padding: 10px;
 }
 
+.rating {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(0, 0, 0);
+}
+
+.star-icon {
+  color: orange;
+  font-size: 15px;
+}
+
+/* This is the container for the quantity and 'Add to Cart' */
+.card-actions-custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* This styles the '- 1 +' box */
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  border: 1px solid #eee;
+  border-radius: 5px;
+}
+
+.btn-qty {
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 5px 10px;
+  color: #777;
+  cursor: pointer;
+}
+
+.btn-qty:hover {
+  color: orange;
+}
+
+.form-control-qty {
+  width: 30px;
+  text-align: center;
+  border: none;
+  padding: 5px 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.add-to-cart-link {
+  font-size: 22px;
+  color: rgb(148, 144, 144);
+  font-family: "Open Sans", sans-serif;
+}
+
+.card-header {
+  display: flex;
+}
+
+.card-header .discount1 {
+  display: block;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: rgba(10, 173, 10, 0.986);
+  color: white;
+  padding: 5px 5px;
+  border-radius: 5px;
+  width: 50px;
+  line-height: 1.2;
+  text-align: center;
+  font-weight: bolder;
+}
+
+.card-header .icon1 .heart-icon {
+  position: absolute;
+  background-color: inherit;
+  right: 19px;
+  bottom: 20px;
 .card-header .icon1 .heart-icon {
   position: absolute;
   background-color: inherit;
@@ -781,8 +1248,352 @@ button {
   position: relative;
   width: 900px;
   height: 400px;
+.card-header .icon1 {
+  position: absolute;
+  background-color: rgb(247, 241, 241);
+  border: 1px solid white;
+  right: 20px;
+  top: 5px;
+  border-radius: 40px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.card-header .icon1 .heart-icon {
+  color: black;
+}
+
+.card-header .icon1:hover {
+  background-color: #ea2b0f;
+  border-color: #ea2b0f;
+}
+
+.card-header .icon1:hover .heart-icon {
+  color: white;
+}
+.card-text1 {
+  font-size: 20px;
+  font-weight: 400;
+  color: rgb(167, 165, 165);
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* --- 9. Special Offers Section --- */
+.offer-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 160px;
+}
+
+.offer-box {
+  /* Reverted to align-items: center for better vertical balance */
+  align-items: center;
+  display: flex;
+  padding: 30px;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: left;
+  position: relative;
+  width: 900px;
+  height: 400px;
+}
+
+.offer-box-one {
+  background-color: rgb(250, 217, 223);
+}
+
+.offer-box-two {
+  background-color: rgb(175, 175, 247);
+}
+
+/* Wrapper for the text content */
+.offer-content {
+  left: 20px;
+  position: relative;
+  width: 500px;
+}
+
+/* Wrapper for the image */
+.offer-image {
+  text-align: right;
+  position: static;
+  margin-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 20px;
+}
+
+.offer-image .img-fluid {
+  margin-top: 10px;
+  height: 290px;
+  display: block;
+  width: 400px;
+}
+
+/* --- Text Element Styling --- */
+
+.offer-content .offer-title {
+  color: #ffc43f;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  display: block;
+  font-family: 'Garamond', serif;
+}
+
+.offer-content h4 {
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #212529; /* Explicitly set color, removed var */
+}
+
+.offer-content p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  color: #9c9c9c; 
+  font-family: "Open Sans", sans-serif;
+}
+
+/* --- Button Styling --- */
+.offer-box .btn-dark {
+  padding: 10px 25px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  background-color: #212529;
+  border-color: #212529;
+  color: #fff;
+  text-transform: uppercase;
+  font-family: "Open Sans", sans-serif;
+}
+
+.offer-box .btn-dark:hover {
+  background-color: #6d6a69;
+  border-color: #6d6a69;
+  color: #fff;
+}
+
+.offer-section {
+  margin-bottom: 120px;
+}
+
+/* --- 10. Email section --- */
+/* Import the font used in the emtail theme */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700;800&display=swap");
+
+.discount-section {
+  background-position: left bottom, right top;
+  background-repeat: no-repeat;
+  background-color: rgb(219, 240, 248);
+  display: block;
+  width: 1400px;
+  height: 700px;
+}
+
+.email-input-section {
+  margin-left: 50px;
+  margin-top: 150px;
+}
+
+.email-text-section {
+  margin-top: 150px;
+  width: 550px;
+  margin-left: 30px;
+}
+
+.text-email {
+  color: rgb(240, 212, 58);
+}
+
+.info-email {
+  font-size: 19px;
+  color: rgb(138, 135, 135);
+  margin-bottom: 30px;
+  margin-top: 0;
+  line-height: 1.8;
+  font-family: "Open Sans", sans-serif;
+}
+
+.title-email {
+  font-size: 56px;
+  font-weight: 700;
+  margin: 0;
+  color: black;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  font-family: "Nunito", sans-serif;
+}
+
+.form-label {
+  font-size: 20px;
+  color: rgb(146, 143, 143);
+}
+
+.form-control {
+  font-size: 20px;
+  height: 70px;
+}
+
+.form-check-label {
+  font-size: 20px;
+  color: rgb(146, 143, 143);
+}
+
+/* --- 11. blogs Section --- */
+.blog-cards {
+  display: flex;
+  flex-wrap: wrap; /* Allows cards to wrap on smaller screens */
+  justify-content: center; /* Centers cards */
+  gap: 30px; /* Space between cards */
+  max-width: 1440px; /* Keeps the content within normal bounds */
+  margin: 0 auto; /* Centers the container */
+  padding: 0 20px;
+}
+
+.card2 {
+  flex: 1; /* Allows cards to grow evenly */
+  min-width: 300px; /* Prevents cards from getting too small */
+  max-width: 400px; /* Prevents cards from getting too wide */
+  height: auto; /* Allow height to adjust naturally */
+  border: none; /* Removes default border */
+  background: transparent;
+  display: flex;
+  flex-direction: column;
+}
+
+/* IMPORTANT: Overrides the inline 'width: 600px' in your HTML */
+.card2 img {
+  width: 100% !important; 
+  height: 250px; /* Sets a nice uniform height for images */
+  object-fit: cover; /* Ensures images don't stretch/distort */
+  border-radius: 8px;
+}
+
+.blog-card-body {
+  padding: 20px 0; /* Vertical spacing for the text area */
+}
+
+/* IMPORTANT: Overrides the inline 'width: 600px' and 'margin-left' in HTML */
+.blog-card-meta {
+  width: 100% !important;
+  margin-left: 0 !important;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 14px; /* Smaller, cleaner font size */
+  color: #888;
+  margin-bottom: 10px;
+  font-family: "Open Sans", sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.blog-card-meta i {
+  color: #bbb; /* Light grey icons */
+  margin-right: 8px;
+  font-size: 16px !important; /* Override inline font size */
+  margin-top: 0 !important; /* Override inline margin */
+}
+
+.meta-category {
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.meta-category:hover {
+  color: var(--primary-orange);
+}
+
+.card-title2 {
+  font-size: 24px; /* Reduced from 28px for better proportion */
+  font-weight: 700;
+  color: #222;
+  line-height: 1.4;
+  margin: 10px 0;
+  width: 100%; /* Fix width */
+  font-family: "Nunito", sans-serif;
+}
+
+.card-text3 {
+  font-size: 16px; /* Reduced from 22px for readability */
+  color: #777;
+  line-height: 1.6;
+  width: 100%; /* Fix width */
+  margin-left: 0; /* Remove left margin */
+  font-family: "Open Sans", sans-serif;
+}
+
+/* --12. phone section -- */
+/*phone section */
+.phone-section {
+  margin-top: 400px;
+}
+
+.text-phone-advertisement {
+  padding-left: 90px;
+}
+
+.img-phone {
+    margin-top: -100px; 
+    margin-bottom: -100px; 
+    
+    width: 100%;
+    max-width: 350px;     
+    display: block;
+    margin-left: auto;   
+    margin-right: auto;
+    
+    position: relative;
+    z-index: 10;
+    
+}
+
+.phone-advertisement-title {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 50px;
+  font-family: "Nunito", sans-serif;
+}
+
+.phone-advertisement-info {
+  font-size: 20px;
+  color: rgb(138, 135, 135);
+  margin-bottom: 40px;
+  line-height: 1.8;
+  width: 700px;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* --- 14. Buttons Section --- */
+.button-section {
+  width: 100%; /* Ensures it never pushes slightly wider than screen */
+  max-width: 1400px; /* Limits width on very large screens */
+  margin: 50px auto;
+  padding: 0 20px; /* Safety padding for mobile edges */
+}
+
+.button-title {
+  font-size: 30px;
+  font-weight: 700;
+  color: black;
+  margin-bottom: 30px;
+  font-family: "Nunito", sans-serif;
+  text-align: left; /* Aligns with the "People also looking for" design */
 .offer-box-one {
   background-color: rgb(250, 217, 223);
 }
